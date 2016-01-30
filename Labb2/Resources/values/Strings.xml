@@ -1,0 +1,18 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<resources>
+	<string name="hello">Hello World, Click Me!</string>
+	<string name="app_name">Labb2</string>
+	<string name="new_entry">New entry</string>
+	<string name="show_all_entries">Show all entries</string>
+	<string name="create_raport">Create raport</string>
+	<string name="info_text">Here you can add new entry,income or cost.</string>
+	<string name="income">income</string>
+	<string name="expense">expense</string>
+	<string name="date">Date:</string>
+	<string name="description">Description:</string>
+	<string name="type">Type:</string>
+	<string name="to_from">To/From account:</string>
+	<string name="total_amount">Total amount(inc. tax):</string>
+	<string name="tax">Tax:</string>
+	<string name="add_button">Add new entry</string>
+</resources>
