@@ -8,7 +8,11 @@ namespace Labb2
 
 		public TaxRate (double tax)
 		{
-			tax = Tax;
+			Tax = tax;
+		}
+		public override string ToString ()
+		{
+			return Tax.ToString() + "%";
 		}
 	}
 }

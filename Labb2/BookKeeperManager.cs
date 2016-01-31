@@ -7,9 +7,11 @@ namespace Labb2
 	public class BookKeeperManager
 	{
 		private static BookKeeperManager instance = null;
+		public List<Entry> entries = new List<Entry> ();
 		public List<Account> incomeAccounts;
 		public List<Account> expenseAccounts;
 		public List<Account> moneyAccounts;
+		public List<TaxRate> tax;
 
 		//singleton
 		public static BookKeeperManager Instance 
@@ -47,6 +49,18 @@ namespace Labb2
 				new Account ("PlusGiro", 1920),
 				new Account ("Bankcertifikat", 1950)
 			};
+
+			tax = new List<TaxRate> () 
+			{
+				new TaxRate(6.0),
+				new TaxRate(12.0),
+				new TaxRate(25.0)
+			};
+		}
+
+		public void addEntry(Entry e)
+		{
+			entries.Add (e);
 		}
 		/*
 		public override string ToString ()
