@@ -4,7 +4,7 @@
 	<string name="app_name">Labb2</string>
 	<string name="new_entry">New entry</string>
 	<string name="show_all_entries">Show all entries</string>
-	<string name="create_raport">Create raport</string>
+	<string name="create_report">Create report</string>
 	<string name="info_text">Here you can add new entry,income or cost.</string>
 	<string name="income">income</string>
 	<string name="expense">expense</string>

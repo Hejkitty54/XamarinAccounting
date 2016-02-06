@@ -1,17 +1,14 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using SQLite;
 
 namespace Labb2
 {
 	public class BookKeeperManager
 	{
 		private static BookKeeperManager instance = null;
-		public List<Entry> entries = new List<Entry> ();
-		public List<Account> incomeAccounts;
-		public List<Account> expenseAccounts;
-		public List<Account> moneyAccounts;
-		public List<TaxRate> tax;
+		private SQLiteConnection db;
 
 		//singleton
 		public static BookKeeperManager Instance 
@@ -27,41 +24,110 @@ namespace Labb2
 		}
 
 		//constructor
-		public BookKeeperManager ()
+		private BookKeeperManager ()
 		{
-			incomeAccounts = new List<Account> () 
-			{
-				new Account ("Försäljning inom Sverige", 3000),
-				new Account ("Fakturerade frakter", 3520),
-				new Account ("Försäljning av övrigt material", 3619)
-			};
 
-			expenseAccounts = new List<Account> () 
-			{
-				new Account ("Lokalhyra", 5010),
-				new Account ("Programvaror", 5420),
-				new Account ("Energikostnader", 5300)
-			};
-				
-			moneyAccounts = new List<Account> () 
-			{
-				new Account ("Kassa", 1910),
-				new Account ("PlusGiro", 1920),
-				new Account ("Bankcertifikat", 1950)
-			};
+			string dbPath = System.Environment.GetFolderPath (System.Environment.SpecialFolder.Personal);
+			db = new SQLiteConnection ( dbPath + @"\database.db");
 
-			tax = new List<TaxRate> () 
-			{
-				new TaxRate(6.0),
-				new TaxRate(12.0),
-				new TaxRate(25.0)
-			};
+
+			try{
+				db.Table<Entry>().Count();
+			} catch(SQLiteException e){
+				db.CreateTable<Entry> ();
+			}
+
+			try{
+				db.Table<TaxRate>().Count();
+			} catch(SQLiteException e){
+				db.CreateTable<TaxRate> ();
+				db.Insert (new TaxRate(){ Tax = 6.0});
+				db.Insert (new TaxRate(){ Tax = 12.0});
+				db.Insert (new TaxRate(){ Tax = 25.0});
+			}
+
+			try{
+				db.Table<Account>().Count();
+			} catch(SQLiteException e){
+				db.CreateTable<Account> ();
+				db.Insert (new Account(){ Name = "Försäljning inom Sverige", Number = 3000});
+				db.Insert (new Account(){ Name = "Fakturerade frakter", Number = 3520});
+				db.Insert (new Account(){ Name = "Försäljning av övrigt material", Number = 3619});
+				db.Insert (new Account(){ Name = "Lokalhyra", Number = 5010});
+				db.Insert (new Account(){ Name = "Programvaror", Number = 5420});
+				db.Insert (new Account(){ Name = "Energikostnader", Number = 5300});
+				db.Insert (new Account(){ Name = "Kassa", Number = 1910});
+				db.Insert (new Account(){ Name = "PlusGiro", Number = 1920});
+				db.Insert (new Account(){ Name = "Bankcertifikat", Number = 1950});
+			}
 		}
 
 		public void addEntry(Entry e)
 		{
-			entries.Add (e);
+			db.Insert (e);
 		}
+
+		public List<Entry> Entries{
+			get{ 
+				return db.Table<Entry> ().ToList ();
+			}
+		}
+
+		public List<TaxRate> TaxRates{
+			get{ 
+				return db.Table<TaxRate> ().ToList ();
+			}
+		}
+
+		public List<Account> IncomeAccounts{
+			get{ 
+				return db.Table<Account> ().Where(a=>a.Number==3000||a.Number==3520||a.Number==3619 ).ToList();
+			}
+		}
+
+		public List<Account> ExpenseAccounts{
+			get{ 
+				return db.Table<Account> ().Where(a=>a.Number==5010||a.Number==5420||a.Number==5300 ).ToList();
+			}
+		}
+
+		public List<Account> MoneyAccounts{
+			get{ 
+				return db.Table<Account> ().Where(a=>a.Number==1910||a.Number==1920||a.Number==1950 ).ToList();
+			}
+		}
+
+		public string GetTaxReport(){
+
+			String whole = "";
+			double calculatedTax;
+			double total=0.0;
+
+			List<Entry> entries = db.Table<Entry> ().ToList ();
+
+			foreach(Entry e in entries){
+
+				whole+= e.Date +"-"+e.Description+" ";
+			
+				int amount = Int32.Parse (e.TotalAmount);
+				double tax = Convert.ToDouble(e.TaxRate.Remove ((e.TaxRate.Length)-1));
+
+				if (e.InOut == "income") {
+					calculatedTax = amount * tax*0.01;
+				} else {
+					calculatedTax = amount * tax * (-0.01);
+				}
+				total += calculatedTax;
+
+				whole+= calculatedTax.ToString()+"kr"+"\n" ;
+
+			}
+
+			whole += "Total: "+ total.ToString()+"kr";
+
+			return whole;
+		}
+
 		/*
 		public override string ToString ()
 		{

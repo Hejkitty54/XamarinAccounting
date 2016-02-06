@@ -20,6 +20,18 @@ namespace Labb2
 				Intent iNewEntry = new Intent (this, typeof(NewEntryActivity));
 				StartActivity (iNewEntry);
 			};
+
+			Button showAllEntries = FindViewById<Button> (Resource.Id.showAllEntries);
+			showAllEntries.Click += delegate {
+				Intent iShowEntry = new Intent (this, typeof(ShowAllEntriesActivity));
+				StartActivity (iShowEntry);
+			};
+
+			Button createReport = FindViewById<Button> (Resource.Id.createReport);
+			createReport.Click += delegate {
+				Intent iCreateReport = new Intent (this, typeof(CreateReportsActivity));
+				StartActivity (iCreateReport);
+			};
 		}
 	}
 }

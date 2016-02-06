@@ -850,8 +850,8 @@ namespace Labb2
 			// aapt resource value: 0x7f0a0025
 			public const int activity_chooser_view_content = 2131361829;
 			
-			// aapt resource value: 0x7f0a004d
-			public const int add_button = 2131361869;
+			// aapt resource value: 0x7f0a0053
+			public const int add_button = 2131361875;
 			
 			// aapt resource value: 0x7f0a000f
 			public const int always = 2131361807;
@@ -865,20 +865,23 @@ namespace Labb2
 			// aapt resource value: 0x7f0a0010
 			public const int collapseActionView = 2131361808;
 			
-			// aapt resource value: 0x7f0a003e
-			public const int createRaport = 2131361854;
-			
-			// aapt resource value: 0x7f0a0042
-			public const int date = 2131361858;
-			
 			// aapt resource value: 0x7f0a0043
-			public const int date_input = 2131361859;
+			public const int createReport = 2131361859;
+			
+			// aapt resource value: 0x7f0a0047
+			public const int date = 2131361863;
+			
+			// aapt resource value: 0x7f0a0048
+			public const int date_input = 2131361864;
 			
 			// aapt resource value: 0x7f0a0028
 			public const int default_activity_button = 2131361832;
 			
-			// aapt resource value: 0x7f0a0044
-			public const int description = 2131361860;
+			// aapt resource value: 0x7f0a0049
+			public const int description = 2131361865;
+			
+			// aapt resource value: 0x7f0a004a
+			public const int description_input = 2131361866;
 			
 			// aapt resource value: 0x7f0a0014
 			public const int dialog = 2131361812;
@@ -901,8 +904,8 @@ namespace Labb2
 			// aapt resource value: 0x7f0a002c
 			public const int expanded_menu = 2131361836;
 			
-			// aapt resource value: 0x7f0a0041
-			public const int expense = 2131361857;
+			// aapt resource value: 0x7f0a0046
+			public const int expense = 2131361862;
 			
 			// aapt resource value: 0x7f0a0000
 			public const int home = 2131361792;
@@ -919,11 +922,11 @@ namespace Labb2
 			// aapt resource value: 0x7f0a0027
 			public const int image = 2131361831;
 			
-			// aapt resource value: 0x7f0a0040
-			public const int income = 2131361856;
+			// aapt resource value: 0x7f0a0045
+			public const int income = 2131361861;
 			
-			// aapt resource value: 0x7f0a003f
-			public const int info = 2131361855;
+			// aapt resource value: 0x7f0a0044
+			public const int info = 2131361860;
 			
 			// aapt resource value: 0x7f0a0006
 			public const int listMode = 2131361798;
@@ -934,11 +937,14 @@ namespace Labb2
 			// aapt resource value: 0x7f0a0018
 			public const int middle = 2131361816;
 			
+			// aapt resource value: 0x7f0a0054
+			public const int myListView = 2131361876;
+			
 			// aapt resource value: 0x7f0a0012
 			public const int never = 2131361810;
 			
-			// aapt resource value: 0x7f0a003c
-			public const int newEntry = 2131361852;
+			// aapt resource value: 0x7f0a0041
+			public const int newEntry = 2131361857;
 			
 			// aapt resource value: 0x7f0a0019
 			public const int none = 2131361817;
@@ -988,14 +994,26 @@ namespace Labb2
 			// aapt resource value: 0x7f0a002e
 			public const int shortcut = 2131361838;
 			
-			// aapt resource value: 0x7f0a003d
-			public const int showAllEntries = 2131361853;
+			// aapt resource value: 0x7f0a0042
+			public const int showAllEntries = 2131361858;
+			
+			// aapt resource value: 0x7f0a003f
+			public const int showBelopp = 2131361855;
 			
 			// aapt resource value: 0x7f0a000b
 			public const int showCustom = 2131361803;
 			
+			// aapt resource value: 0x7f0a003d
+			public const int showDate = 2131361853;
+			
 			// aapt resource value: 0x7f0a000c
 			public const int showHome = 2131361804;
+			
+			// aapt resource value: 0x7f0a003e
+			public const int showMessage = 2131361854;
+			
+			// aapt resource value: 0x7f0a0040
+			public const int showTax = 2131361856;
 			
 			// aapt resource value: 0x7f0a000d
 			public const int showTitle = 2131361805;
@@ -1009,35 +1027,38 @@ namespace Labb2
 			// aapt resource value: 0x7f0a0008
 			public const int tabMode = 2131361800;
 			
-			// aapt resource value: 0x7f0a004b
-			public const int tax = 2131361867;
+			// aapt resource value: 0x7f0a0051
+			public const int tax = 2131361873;
 			
-			// aapt resource value: 0x7f0a004c
-			public const int tax_spinner = 2131361868;
+			// aapt resource value: 0x7f0a003c
+			public const int tax_report = 2131361852;
+			
+			// aapt resource value: 0x7f0a0052
+			public const int tax_spinner = 2131361874;
 			
 			// aapt resource value: 0x7f0a002b
 			public const int title = 2131361835;
 			
-			// aapt resource value: 0x7f0a0047
-			public const int toFrom = 2131361863;
+			// aapt resource value: 0x7f0a004d
+			public const int toFrom = 2131361869;
 			
-			// aapt resource value: 0x7f0a0048
-			public const int to_from_spinner = 2131361864;
+			// aapt resource value: 0x7f0a004e
+			public const int to_from_spinner = 2131361870;
 			
 			// aapt resource value: 0x7f0a0020
 			public const int top_action_bar = 2131361824;
 			
-			// aapt resource value: 0x7f0a0049
-			public const int total_amount = 2131361865;
+			// aapt resource value: 0x7f0a004f
+			public const int total_amount = 2131361871;
 			
-			// aapt resource value: 0x7f0a004a
-			public const int total_amount_input = 2131361866;
+			// aapt resource value: 0x7f0a0050
+			public const int total_amount_input = 2131361872;
 			
-			// aapt resource value: 0x7f0a0045
-			public const int type = 2131361861;
+			// aapt resource value: 0x7f0a004b
+			public const int type = 2131361867;
 			
-			// aapt resource value: 0x7f0a0046
-			public const int type_spinner = 2131361862;
+			// aapt resource value: 0x7f0a004c
+			public const int type_spinner = 2131361868;
 			
 			// aapt resource value: 0x7f0a0021
 			public const int up = 2131361825;
@@ -1150,13 +1171,22 @@ namespace Labb2
 			public const int abc_simple_decor = 2130968599;
 			
 			// aapt resource value: 0x7f040018
-			public const int Main = 2130968600;
+			public const int create_reports = 2130968600;
 			
 			// aapt resource value: 0x7f040019
-			public const int new_entry = 2130968601;
+			public const int entry_list_item = 2130968601;
 			
 			// aapt resource value: 0x7f04001a
-			public const int support_simple_spinner_dropdown_item = 2130968602;
+			public const int Main = 2130968602;
+			
+			// aapt resource value: 0x7f04001b
+			public const int new_entry = 2130968603;
+			
+			// aapt resource value: 0x7f04001c
+			public const int show_all_entries = 2130968604;
+			
+			// aapt resource value: 0x7f04001d
+			public const int support_simple_spinner_dropdown_item = 2130968605;
 			
 			static Layout()
 			{
@@ -1233,7 +1263,7 @@ namespace Labb2
 			public const int app_name = 2131427342;
 			
 			// aapt resource value: 0x7f0b0011
-			public const int create_raport = 2131427345;
+			public const int create_report = 2131427345;
 			
 			// aapt resource value: 0x7f0b0015
 			public const int date = 2131427349;

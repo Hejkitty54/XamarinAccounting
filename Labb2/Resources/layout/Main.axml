@@ -14,8 +14,8 @@
         android:layout_height="wrap_content"
         android:text="@string/show_all_entries" />
     <Button
-        android:id="@+id/createRaport"
+        android:id="@+id/createReport"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="@string/create_raport" />
+        android:text="@string/create_report" />
 </LinearLayout>

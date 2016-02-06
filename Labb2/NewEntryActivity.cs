@@ -10,18 +10,15 @@ using Android.OS;
 using Android.Runtime;
 using Android.Views;
 using Android.Widget;
+using SQLite;
+
 
 namespace Labb2
 {
 	[Activity (Label = "NewEntry")]			
 	public class NewEntryActivity : Activity
 	{
-		private BookKeeperManager BKM = BookKeeperManager.Instance;
-		private List<string> incomeAccounts= new List<string>();
-		private List<string> expenseAccounts= new List<string>();
-		private List<string> moneyAccounts= new List<string>();
-		private List<string> tax= new List<string>();
-
+		private BookKeeperManager BKM;
 		private Spinner typeSp;
 		private string inOut;
 		private string type;
@@ -32,26 +29,7 @@ namespace Labb2
 		{
 			base.OnCreate (savedInstanceState);
 			SetContentView (Resource.Layout.new_entry);
-
-			//kan skariva på bättre sätt?
-			foreach( Account a in BKM.incomeAccounts)
-			{
-				incomeAccounts.Add(a.ToString());
-			}
-			foreach( Account a in BKM.expenseAccounts)
-			{
-				expenseAccounts.Add(a.ToString());
-			}
-			foreach( Account a in BKM.moneyAccounts)
-			{
-				moneyAccounts.Add(a.ToString());
-			}
-			foreach( TaxRate t in BKM.tax)
-			{
-				tax.Add(t.ToString());
-			}
-
-
+			BKM = BookKeeperManager.Instance;
 
 			RadioButton incomeRb = FindViewById<RadioButton> (Resource.Id.income);
 			RadioButton expenseRb = FindViewById<RadioButton> (Resource.Id.expense);
@@ -59,13 +37,13 @@ namespace Labb2
 
 			incomeRb.Click += delegate {
 				inOut="income";
-				ArrayAdapter typeAdapter = new ArrayAdapter (this,Android.Resource.Layout.SimpleSpinnerDropDownItem,incomeAccounts);
+				ArrayAdapter typeAdapter = new ArrayAdapter (this,Android.Resource.Layout.SimpleSpinnerDropDownItem,BKM.IncomeAccounts);
 				typeSp.Adapter = typeAdapter;
 			};
 				
 			expenseRb.Click += delegate {
 				inOut="expense";
-				ArrayAdapter typeAdapter = new ArrayAdapter (this,Android.Resource.Layout.SimpleSpinnerDropDownItem,expenseAccounts);
+				ArrayAdapter typeAdapter = new ArrayAdapter (this,Android.Resource.Layout.SimpleSpinnerDropDownItem,BKM.ExpenseAccounts);
 				typeSp.Adapter = typeAdapter;
 			};
 
@@ -75,15 +53,15 @@ namespace Labb2
 			};
 				
 			Spinner moneyAccountSp = FindViewById<Spinner> (Resource.Id.to_from_spinner);
-			ArrayAdapter maAdapter = new ArrayAdapter (this,Android.Resource.Layout.SimpleSpinnerDropDownItem,moneyAccounts);
+			ArrayAdapter maAdapter = new ArrayAdapter (this,Android.Resource.Layout.SimpleSpinnerDropDownItem,BKM.MoneyAccounts);
 			moneyAccountSp.Adapter = maAdapter;
 			moneyAccountSp.ItemSelected += delegate {
 				moneyAccount = moneyAccountSp.SelectedItem.ToString();
 				Console.WriteLine(moneyAccount);
 			};
-
+				
 			Spinner taxSp = FindViewById<Spinner> (Resource.Id.tax_spinner);
-			ArrayAdapter taxAdapter = new ArrayAdapter (this,Android.Resource.Layout.SimpleSpinnerDropDownItem,tax);
+			ArrayAdapter taxAdapter = new ArrayAdapter (this,Android.Resource.Layout.SimpleSpinnerDropDownItem,BKM.TaxRates);
 			taxSp.Adapter = taxAdapter;
 			taxSp.ItemSelected += delegate {
 				taxRate = taxSp.SelectedItem.ToString();
@@ -92,18 +70,19 @@ namespace Labb2
 
 			Button addButton = FindViewById<Button> (Resource.Id.add_button);
 			addButton.Click += delegate {
-				//måste fixa till string
-				string date = FindViewById<EditText>(Resource.Id.date_input).ToString();
-				string description = FindViewById<EditText>(Resource.Id.date_input).ToString();
-				string totalAmount = FindViewById<EditText>(Resource.Id.total_amount_input).ToString();
-				//Adds to list entries
-				Entry entry = new Entry(inOut,date,description,type,moneyAccount,totalAmount,taxRate);
+				
+				string date = FindViewById<EditText>(Resource.Id.date_input).Text;
+				string description = FindViewById<EditText>(Resource.Id.description_input).Text;
+				string totalAmount = FindViewById<EditText>(Resource.Id.total_amount_input).Text;
+
+				//Adds to BKM
+				Entry entry = new Entry(){ InOut=inOut, Date = date, Description=description,Type = type, MoneyAccount=moneyAccount,
+											TotalAmount = totalAmount, TaxRate=taxRate};
 				BKM.addEntry(entry);
 
-				Console.WriteLine(inOut+type+moneyAccount);
+			
 			};
-
-
+				
 		}
 	}
 }

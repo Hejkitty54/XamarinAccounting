@@ -1,9 +1,12 @@
 ﻿using System;
+using SQLite;
 
 namespace Labb2
 {
 	public class Entry
 	{
+		[PrimaryKey, AutoIncrement]
+		public int Id{ get; private set;}
 		public string InOut { get; set;}
 		public string Date { get; set;}
 		public string Description { get; set;}
@@ -11,16 +14,10 @@ namespace Labb2
 		public string MoneyAccount { get; set;}
 		public string TotalAmount { get; set;}
 		public string TaxRate { get; set;}
+		public double CalculatedTax { get; set;}
 
-		public Entry (string inOut,string date,string description,string type,string moneyAccount,string totalAmount,string taxrate)
+		public Entry ()
 		{
-			InOut = inOut;
-			Date = date;
-			Description = description;
-			Type = type;
-			MoneyAccount = moneyAccount;
-			TotalAmount = totalAmount;
-			TaxRate = taxrate;
 		}
 	}
 }

@@ -1,15 +1,18 @@
 ﻿using System;
+using SQLite;
 
 namespace Labb2
 {
 	public class TaxRate
 	{
-		public double Tax { get; private set;} 
+		[PrimaryKey, AutoIncrement]
+		public int Id{ get; private set;}
+		public double Tax { get; set;} 
 
-		public TaxRate (double tax)
+		public TaxRate ()
 		{
-			Tax = tax;
 		}
+
 		public override string ToString ()
 		{
 			return Tax.ToString() + "%";

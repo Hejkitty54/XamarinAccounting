@@ -16,8 +16,6 @@
     <AndroidUseLatestPlatformSdk>False</AndroidUseLatestPlatformSdk>
     <AssemblyName>Labb2</AssemblyName>
     <TargetFrameworkVersion>v4.4</TargetFrameworkVersion>
-    <ProductVersion>8.0.30703</ProductVersion>
-    <SchemaVersion>2.0</SchemaVersion>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <DebugSymbols>true</DebugSymbols>
@@ -69,6 +67,9 @@
     <Compile Include="Account.cs" />
     <Compile Include="TaxRate.cs" />
     <Compile Include="BookKeeperManager.cs" />
+    <Compile Include="ShowAllEntriesActivity.cs" />
+    <Compile Include="EntryAdapter.cs" />
+    <Compile Include="CreateReportsActivity.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\AboutResources.txt" />
@@ -84,7 +85,10 @@
     <AndroidResource Include="Resources\mipmap-xhdpi\Icon.png" />
     <AndroidResource Include="Resources\mipmap-xxhdpi\Icon.png" />
     <AndroidResource Include="Resources\mipmap-xxxhdpi\Icon.png" />
+    <AndroidResource Include="Resources\layout\show_all_entries.axml" />
+    <AndroidResource Include="Resources\layout\entry_list_item.axml" />
     <AndroidResource Include="Resources\layout\new_entry.axml" />
+    <AndroidResource Include="Resources\layout\create_reports.axml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Resources\drawable\" />

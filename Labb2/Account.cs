@@ -1,16 +1,15 @@
 ﻿using System;
+using SQLite;
 
 namespace Labb2
 {
 	public class Account
 	{
-		public string Name { get; private set;}
-		public int Number  { get; private set;}
+		public string Name { get; set;}
+		public int Number  { get; set;}
 
-		public Account (string name, int number)
+		public Account ()
 		{
-			Name = name;
-			Number = number;
 		}
 		public override string ToString ()
 		{
