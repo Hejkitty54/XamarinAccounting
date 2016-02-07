@@ -3,6 +3,8 @@ using SQLite;
 
 namespace Labb2
 {
+	/// <summary>This is an account class which has information about account.
+	/// This is used for the income account, expense account and money account.</summary>
 	public class Account
 	{
 		public string Name { get; set;}
@@ -11,6 +13,7 @@ namespace Labb2
 		public Account ()
 		{
 		}
+
 		public override string ToString ()
 		{
 			return Name + " ("+ Number + ")";

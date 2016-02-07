@@ -6,6 +6,7 @@ using Android.Content;
 namespace Labb2
 {
 	[Activity (Label = "Labb2", MainLauncher = true, Icon = "@mipmap/icon")]
+	/// <summary> This class has three buttons which leads to different activities. </summary>
 	public class MainActivity : Activity
 	{
 		protected override void OnCreate (Bundle savedInstanceState)

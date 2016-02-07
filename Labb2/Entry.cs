@@ -2,7 +2,9 @@
 using SQLite;
 
 namespace Labb2
-{
+{	
+	/// <summary> This is an Entry which user can add. This is used both for the income and the cost.
+	/// This has all informations abot the entry.</summary>
 	public class Entry
 	{
 		[PrimaryKey, AutoIncrement]

@@ -13,7 +13,8 @@ using Android.Widget;
 
 namespace Labb2
 {
-	[Activity (Label = "ShowAllEntriesActivity")]			
+	[Activity (Label = "ShowAllEntriesActivity")]
+	/// <summary> All entries which exsists in the database can be shown in this activity.</summary>
 	public class ShowAllEntriesActivity : Activity
 	{
 		protected override void OnCreate (Bundle savedInstanceState)

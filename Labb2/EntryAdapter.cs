@@ -5,7 +5,8 @@ using System.Collections.Generic;
 using Android.Views;
 
 namespace Labb2
-{
+{	
+	/// <summary> This is an adapter class which was made for being used to show the list in ShowAllEntries activity.</summary>
 	public class EntryAdapter:BaseAdapter
 	{
 		private Activity activity;

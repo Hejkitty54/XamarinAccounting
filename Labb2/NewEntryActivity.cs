@@ -15,7 +15,10 @@ using SQLite;
 
 namespace Labb2
 {
-	[Activity (Label = "NewEntry")]			
+	[Activity (Label = "NewEntry")]
+	/// <summary> This is an activity class which user can make a new entry with.
+	/// User inputs informations in it and when user click add button,
+	/// Entry-object is created and is saved in the database.</summary>
 	public class NewEntryActivity : Activity
 	{
 		private BookKeeperManager BKM;
