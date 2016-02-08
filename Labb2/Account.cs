@@ -8,6 +8,7 @@ namespace Labb2
 	public class Account
 	{
 		public string Name { get; set;}
+		[PrimaryKey]
 		public int Number  { get; set;}
 
 		public Account ()

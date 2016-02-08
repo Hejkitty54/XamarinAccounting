@@ -60,26 +60,26 @@ namespace Labb2
 			}
 		}
 		/// <summary> adds an Entry to the Entry table.</summary>
-		/// <param name="e"> instance of a Entry class</param>
+		/// <param name="e"> instance of an Entry class</param>
 		public void addEntry(Entry e)
 		{
 			db.Insert (e);
 		}
 
-		/// <summary> hämtar whole Entry table and converts it to the list and returns it.</summary>
+		/// <summary> takes whole Entry table and converts it to the list and returns it.</summary>
 		public List<Entry> Entries{
 			get{ 
 				return db.Table<Entry> ().ToList ();
 			}
 		}
 
-		/// <summary> hämtar whole TaxRate table and converts it to the list and returns it.</summary>
+		/// <summary> takes whole TaxRate table and converts it to the list and returns it.</summary>
 		public List<TaxRate> TaxRates{
 			get{ 
 				return db.Table<TaxRate> ().ToList ();
 			}
 		}
-		/// <summary> hämtar Account table which Number is 3000, 3520 and 3619. 
+		/// <summary> takes Account table which Number is 3000, 3520 and 3619. 
 		/// It is converted to the list and is returned.</summary>
 		public List<Account> IncomeAccounts{
 			get{ 
@@ -87,7 +87,7 @@ namespace Labb2
 			}
 		}
 
-		/// <summary> hämtar Account table which Number is 5010, 5420 and 5300. 
+		/// <summary> takes Account table which Number is 5010, 5420 and 5300. 
 		/// It is converted to the list and is returned.</summary>
 		public List<Account> ExpenseAccounts{
 			get{ 
@@ -95,7 +95,7 @@ namespace Labb2
 			}
 		}
 
-		/// <summary> hämtar Account table which Number is 1910, 1920 and 1950. 
+		/// <summary> takes Account table which Number is 1910, 1920 and 1950. 
 		/// It is converted to the list and is returned.</summary>
 		public List<Account> MoneyAccounts{
 			get{ 
@@ -129,16 +129,9 @@ namespace Labb2
 				whole+= calculatedTax.ToString()+"kr"+"\n" ;
 			}
 
-			whole += "Total: "+ total.ToString()+"kr";
-
+			whole += "Total tax to pay: "+ total.ToString()+"kr";
 			return whole;
 		}
-
-		/*
-		public override string ToString ()
-		{
-			return String.Join (",",moneyAccounts.Select(s=> s.ToString()));
-		}*/
 	}
 }
 

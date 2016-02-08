@@ -14,7 +14,7 @@ using Android.Widget;
 namespace Labb2
 {
 	[Activity (Label = "CreateReportsActivity")]	
-	/// <summary> This activity has a button which send a tax report via e-mail. </summary>
+	/// <summary> This activity has a button which sends a tax report via e-mail. </summary>
 	public class CreateReportsActivity : Activity
 	{
 		protected override void OnCreate (Bundle savedInstanceState)
@@ -31,12 +31,7 @@ namespace Labb2
 				email.PutExtra (Intent.ExtraText,BKM.GetTaxReport());
 				email.SetType ("message/rfc822");
 				StartActivity (email);
-
-				Console.WriteLine(BKM.GetTaxReport());
 			};
-
-
-
 		}
 	}
 }

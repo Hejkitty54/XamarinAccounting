@@ -16,9 +16,9 @@ using SQLite;
 namespace Labb2
 {
 	[Activity (Label = "NewEntry")]
-	/// <summary> This is an activity class which user can make a new entry with.
-	/// User inputs informations in it and when user click add button,
-	/// Entry-object is created and is saved in the database.</summary>
+	/// <summary> This is an activity class which the user can make a new entry with.
+	/// User inputs information in it and when user click add button,
+	/// an Entry object is created and is saved in the database.</summary>
 	public class NewEntryActivity : Activity
 	{
 		private BookKeeperManager BKM;
@@ -52,7 +52,6 @@ namespace Labb2
 
 			typeSp.ItemSelected += delegate {
 				type = typeSp.SelectedItem.ToString();
-				Console.WriteLine(type);
 			};
 				
 			Spinner moneyAccountSp = FindViewById<Spinner> (Resource.Id.to_from_spinner);
@@ -60,7 +59,6 @@ namespace Labb2
 			moneyAccountSp.Adapter = maAdapter;
 			moneyAccountSp.ItemSelected += delegate {
 				moneyAccount = moneyAccountSp.SelectedItem.ToString();
-				Console.WriteLine(moneyAccount);
 			};
 				
 			Spinner taxSp = FindViewById<Spinner> (Resource.Id.tax_spinner);
@@ -68,7 +66,6 @@ namespace Labb2
 			taxSp.Adapter = taxAdapter;
 			taxSp.ItemSelected += delegate {
 				taxRate = taxSp.SelectedItem.ToString();
-				Console.WriteLine(taxRate);
 			};
 
 			Button addButton = FindViewById<Button> (Resource.Id.add_button);
@@ -82,10 +79,8 @@ namespace Labb2
 				Entry entry = new Entry(){ InOut=inOut, Date = date, Description=description,Type = type, MoneyAccount=moneyAccount,
 											TotalAmount = totalAmount, TaxRate=taxRate};
 				BKM.addEntry(entry);
-
-			
+						
 			};
-				
 		}
 	}
 }

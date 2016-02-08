@@ -41,15 +41,12 @@ namespace Labb2
 			TextView textBelopp = convertView.FindViewById<TextView> (Resource.Id.showBelopp);
 			TextView textTax = convertView.FindViewById<TextView> (Resource.Id.showTax);
 
-
 			textDate.Text = entry.Date;
 			textMessage.Text = entry.Description;
 			textBelopp.Text = entry.TotalAmount+"kr";
 			textTax.Text = "tax."+entry.TaxRate;
 
 			return convertView;
-
-
 		}
 
 		public override int Count {

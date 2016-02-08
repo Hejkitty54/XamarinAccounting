@@ -22,7 +22,7 @@ namespace Labb2
 			base.OnCreate (savedInstanceState);
 			SetContentView (Resource.Layout.show_all_entries);
 
-			//hämta list of entries from BKM
+			//takes list of entries from BKM
 			BookKeeperManager BKM = BookKeeperManager.Instance;
 			List<Entry> entries = BKM.Entries;
 			EntryAdapter adapter = new EntryAdapter (this, entries);

@@ -6,14 +6,12 @@ using Android.Content;
 namespace Labb2
 {
 	[Activity (Label = "Labb2", MainLauncher = true, Icon = "@mipmap/icon")]
-	/// <summary> This class has three buttons which leads to different activities. </summary>
+	/// <summary> This class has three buttons which leads to some different activities. </summary>
 	public class MainActivity : Activity
 	{
 		protected override void OnCreate (Bundle savedInstanceState)
 		{
 			base.OnCreate (savedInstanceState);
-
-			// Set our view from the "main" layout resource
 			SetContentView (Resource.Layout.Main);
 
 			Button newEntry = FindViewById<Button> (Resource.Id.newEntry);
